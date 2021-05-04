@@ -46,3 +46,63 @@ We have included [configuration files](https://github.com/noise-lab/multi-trr-pu
 - timeout: Specify a timeout for DNS queries, in milliseconds.
 
 ## Performing Measurements
+We have created a Docker image that enables users to measure the impact of the proxy on page load times.
+The Docker image is built to run on amd64 machines, but the Dockerfile that builds the image can be modified for different platforms.
+The image is available [here](...).
+You can load the image into Docker using `docker load < <image_name>.tar.gz`.
+
+### Dependencies
+Our code was built to run on Debian.
+To build the DNS response time measurement tool, you will first need to install
+the packages in the dns-timing/debs directory with `dpkg -i`.
+You will also need to install the following dependencies:
+
+* libcurl4-openssl-dev
+* libssl-dev
+* libev4, libev-dev
+* libevent-2.1.6, libevent-core-2.1.6, libevent-openssl-2.1.6, libevent-dev
+* libuv1
+
+To instrument the Docker image to measure page loads, parse the resulting HARs,
+and insert the HARs into a PostgreSQL database, you will need to install the
+following dependencies:
+
+* python3, python3-pip, python3-dev
+* postgresql, postgresql-client
+* dnsutils
+* net-tools 
+* autoconf
+* automake
+* build-essential
+* libtool
+
+Lastly, you will need to install the pip packages listed in 
+src/measure/requirements.txt with the`pip3 install -r requirements.txt`
+
+### Installation
+Once you've installed the dependencies listed above, you need to do a few more
+things before you can start some measurements:
+* Create a PostgreSQL database and user that has write access to the database
+* Modify the data/postgres.ini file to contain your PostgreSQL credentials. For
+  the har_table field, choose the name of the table that you want to store HARs
+  for page load times. For the dns_table field, choose the name of the table that
+  you want to store DNS response times.
+* Run the following script to initialize the tables in your database that will
+  store HARs and DNS response times:
+  `python3 database.py ../../data/postgres.ini`
+* Run `make` in src/measure/dns-timing to create the DNS response time measurement tool
+
+### Running a measurement
+Assuming your credentials are in data/postgres.ini and you wish to measure the
+websites listed in data/tranco_combined.txt, you can simply run `sudo ./measure.sh`
+from the src/measure directory to start your measurements. We need `sudo` to 
+measure the ping to recursive resolvers.
+
+This script will perform page loads for each website in
+data/tranco_combined.txt. These page loads will be performed using the random, round-robin, 
+and hash distribution strategies. The configuration files we provided for the measurements 
+use the DoH resolvers provided by Cloudflare, Google, Quad9, and NextDNS.
+The script will also perform page loads by sending all queries to the DoH resolvers provided by 
+Cloudflare, Google, Quad9, and NextDNS.
+
+
