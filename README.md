@@ -31,7 +31,7 @@ Furthermore, if the same client later queries [images.google.com](images.google.
 - Round-robin distribution: Using this strategy, queries are sequentially striped across a set of resolvers
 R. The round-robin strategy results in each resolver would be assigned 1/R of the client's queries.
 
-We have included [configuration files](https://github.com/noise-lab/multi-trr-public/src/config) for these distribution strategies. We have also included configuration files if users wish to send all of their queries to one of Cloudflare, Google, Quad9, or NextDNS' DoH servers. If users wish to modify our configuration files, they may consider the following options to be especially important:
+We have included [configuration files](https://github.com/noise-lab/multi-trr-public/tree/main/src/config) for these distribution strategies. We have also included configuration files if users wish to send all of their queries to one of Cloudflare, Google, Quad9, or NextDNS' DoH servers. If users wish to modify our configuration files, they may consider the following options to be especially important:
 - server_names: Specify a list of DNS resolvers to use, as defined by [this file](https://dnscrypt.info/public-servers).
 - lb_strategy: Specify which load balancing strategy users wish to use on a per-query basis. Possible options are as follows:
     * `rr`: Distribute queries on a round-robin basis, as described above.
@@ -51,7 +51,7 @@ We have included [configuration files](https://github.com/noise-lab/multi-trr-pu
 ## Performing Measurements
 We have created a Docker image that enables users to perform page loads with a headless browser to measure the performance impact of the proxy on page laod times.
 The Docker image is built to run on amd64 machines, but the Dockerfile that builds the image can be modified for different platforms.
-The image is available [here](...).
+The image is available [here]().
 You can load the image into Docker using `docker load < <image_name>.tar.gz`.
 We have also created a DNS response time measurement tool that exists separately from the Docker image.
 The tool is capable of performing DNS queries with DNS, DoT, and DoH, but for our purposes, users can perform DNS queries against an instance of our fork of dnscrypt-proxy.
