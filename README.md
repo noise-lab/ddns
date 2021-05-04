@@ -10,12 +10,11 @@ The repository is structured as follows:
 - ...
 - ...
 
-## Installation
+## Installation and Running the Proxy
+The proxy exists as a fork of dnscrypt-proxy, which we have tested on macOS and EdgeOS. To install the proxy and run it, we refer the reader to the instructions for the following operating systems:
+- [MacOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-macOS)
+- [EdgeOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-on-EdgeOS)
 
-## Running the Proxy
-
-### Configuration Options
-
-### Pre-Made Configuration Files
+## Configuration Files
 
 ## Performing Measurements
