@@ -7,8 +7,7 @@ This repository also contains code for performing page load time measurements ag
 We provide instructions for performing these measurements from both desktop devices and home routers.
 
 The repository is structured as follows:
-- ...
-- ...
+- src/measure: Source files for running performance measurements with our fork of dnscrypt-proxy
 
 ## Installation and Running the Proxy
 The proxy exists as a fork of dnscrypt-proxy, which we have tested on Debian Linux, MacOS and EdgeOS. To install the proxy and run it, we refer the reader to the instructions for the following operating systems, substituting the linked binaries for [our binaries]():
