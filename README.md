@@ -13,7 +13,7 @@ The repository is structured as follows:
 - src/config: Example configuration files for using our fork of dnscrypt-proxy
 
 ## Installation and Running the Proxy
-The proxy exists as a fork of dnscrypt-proxy, which we have tested on Debian Linux, MacOS and EdgeOS. To install the proxy and run it, we refer the reader to the instructions for the following operating systems, substituting the linked binaries for [our binaries]():
+The proxy exists as a fork of dnscrypt-proxy, which we have tested on Debian Linux, MacOS and EdgeOS. To install the proxy and run it, we refer the reader to the instructions for the following operating systems, substituting the linked binaries for [our binaries](https://github.com/noise-lab/multi-trr-public/tree/main/releases):
 - [Linux](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-linux)
 - [MacOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-macOS)
 - [EdgeOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-on-EdgeOS)
@@ -31,7 +31,7 @@ Furthermore, if the same client later queries [images.google.com](images.google.
 - Round-robin distribution: Using this strategy, queries are sequentially striped across a set of resolvers
 R. The round-robin strategy results in each resolver would be assigned 1/R of the client's queries.
 
-We have included [configuration files](https://github.com/noise-lab/multi-trr-public/tree/main/src/config) for these distribution strategies. We have also included configuration files if users wish to send all of their queries to one of Cloudflare, Google, Quad9, or NextDNS' DoH servers. If users wish to modify our configuration files, they may consider the following options to be especially important:
+We have included configuration files for these distribution strategies in our releases. We have also included configuration files if users wish to send all of their queries to one of Cloudflare, Google, Quad9, or NextDNS' DoH servers. If users wish to modify our configuration files, they may consider the following options to be especially important:
 - server_names: Specify a list of DNS resolvers to use, as defined by [this file](https://dnscrypt.info/public-servers).
 - lb_strategy: Specify which load balancing strategy users wish to use on a per-query basis. Possible options are as follows:
     * `rr`: Distribute queries on a round-robin basis, as described above.
