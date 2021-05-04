@@ -15,6 +15,9 @@ The proxy exists as a fork of dnscrypt-proxy, which we have tested on macOS and 
 - [MacOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-macOS)
 - [EdgeOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-on-EdgeOS)
 
+We note that the [upstream repository for dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation) has releases available for additional operating systems, and instructions for running the proxy on these operating systems. However, we have not tested our modifications on all of these operating systems.
+
 ## Configuration Files
+
 
 ## Performing Measurements
