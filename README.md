@@ -38,7 +38,7 @@ We have included configuration files for these distribution strategies in our re
     * `hash`: Distribute queries by mapping SLDs to resolvers, as described above.
     * `random`: Distribute each query to a random resolver, as described above.
     * `p2`: Distribute queries by randomly choosing between the first two alphanumerically sorted servers in server_names
-    * `ph`: Distribute queries by randomly choosing between the top half of alphumerically sorted servers in server_names
+    * `ph`: Distribute queries by randomly choosing between the top half of alphanumerically sorted servers in server_names
     * `first`: Send all queries to the first alphanumerically sorted server in server_names
 - lb_estimator: Specify whether to periodically sort the servers in server_names, which is relevant for certain load balancing strategies. The original version of dnscrypt-proxy periodically sorts servers by estimated latency, whereas our fork sorts servers by their names. If clients wish to use the round-robin or hash strategies, they should set lb_estimator to `false`.
 - query_log: Specify a log file to output queries received by the proxy
