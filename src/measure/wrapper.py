@@ -137,8 +137,8 @@ def run_configuration(log, db, experiment, website, recursive,
             log.info(msg.format(website, recursive, dns_type, model))
             log.info("Delays for website {}: {}".format(website, delays))
             if all_dns_info:
-                # rv_dns = db.insert_dns(har_uuid, experiment, recursive,
-                #                        dns_type, model, all_dns_info)
+                rv_dns = db.insert_dns(har_uuid, experiment, recursive,
+                                       dns_type, model, all_dns_info)
                 rv_dns = None
                 if not rv_dns:
                     msg = "Saved DNS timings for website {}"
@@ -229,8 +229,8 @@ def measure_and_collect_har(log, website, resolver_ip, resolver_uri,
     # Get DNS resolution times for each unique domain in HAR
     try:
         if json_har:
-            # all_dns_info = measure_dns(website, json_har, har_uuid, dns_type,
-            #                            resolver_ip, resolver_uri, model)
+            all_dns_info = measure_dns(website, json_har, har_uuid, dns_type,
+                                       resolver_ip, resolver_uri, model)
             all_dns_info = None
         else:
             all_dns_info = None
