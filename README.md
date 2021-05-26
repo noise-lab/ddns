@@ -15,7 +15,7 @@ The repository is structured as follows:
 ## Installation and Running the Proxy
 The proxy exists as a fork of dnscrypt-proxy, which we have tested on Debian Linux, MacOS and EdgeOS. At a high level, to begin using the proxy on Linux-like operating systems, users can perform the following steps:
 - Copy the binary and the desired configuration file to any folder.
-- If another DNS proxy is already running on your system (e.g., `dnsmasq`), you may need to modify the `listening_addresses` argument in your configuration file to use a different port, e.g., 5353. Once you've done so, update the upstream resolver for the proxy that is already running to the argument you specified in `listening_addresses`.
+- If another DNS proxy is already running on your system and you don't wish to remove it (e.g., `dnsmasq`), you may need to modify the `listening_addresses` argument in your configuration file to use a different port, e.g., 5353. Once you've done so, update the upstream resolver for the proxy that is already running to the argument you specified in `listening_addresses`.
 - If another DNS proxy is *not* running, modify your network settings to use our proxy's listening address for the operating system's resolver. This can typically be done by modifying the file `/etc/resolv.conf`, but on MacOS, you may need to use the Network configuration panel.
 - In the folder you copied the binary to, run the proxy with `./dnscrypt-proxy -C <configuration_file>`
 
