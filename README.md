@@ -15,11 +15,11 @@ The repository is structured as follows:
 ## Installation and Running the Proxy
 The proxy exists as a fork of dnscrypt-proxy, which we have tested on Debian Linux, MacOS and EdgeOS. At a high level, to begin using the proxy on Linux-like operating systems, users can perform the following steps:
 - Copy the binary and the desired configuration file to any folder.
-- If another DNS proxy is already running on your system and you don't wish to remove it (e.g., `dnsmasq`), you may need to modify the `listening_addresses` argument in your configuration file to use a different port, e.g., 5353. Once you've done so, update the upstream resolver for the proxy that is already running to the argument you specified in `listening_addresses`.
+- If another DNS proxy is already running on your system and you don't wish to remove it (e.g., `dnsmasq`), you may need to modify the `listening_addresses` argument in your configuration file to use a different port and/or address. Once you've done so, update the upstream resolver for the proxy that is already running to the argument you specified in `listening_addresses`.
 - If another DNS proxy is *not* running, modify your network settings to use our proxy's listening address for the operating system's resolver. This can typically be done by modifying the file `/etc/resolv.conf`, but on MacOS, you may need to use the Network configuration panel.
 - In the folder you copied the binary to, run the proxy with `./dnscrypt-proxy -C <configuration_file>`
 
-On some operating systems, you may need to ensure that your DNS settings don't get overridden by the operating system. For more details--and to ensure that the proxy persists across system restarts--we refer the reader to the instructions for the following operating systems, substituting the mentioned binaries for [our binaries](https://github.com/noise-lab/multi-trr-public/tree/main/releases):
+Depending on which operating system you use, there are additional steps you may wish to perform. For example, on some operating systems, you may need to ensure that your DNS settings don't get overridden by the upstream network. Furthermore, you may wish to configure dnscrypt-proxy so that it boots upon system restart. For more details, we refer the reader to the upstream repository's instructions for the following operating systems, substituting the mentioned binaries for [our binaries](https://github.com/noise-lab/multi-trr-public/tree/main/releases):
 - [Linux](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-linux)
 - [MacOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-macOS)
 - [EdgeOS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-on-EdgeOS)
